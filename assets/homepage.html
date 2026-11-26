@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>Routes</title>
+    <link rel="stylesheet" type="text/css" href="http://admin.sccm.in/mapplic/mapplicR.css">
+
+    <link href="http://admin.sccm.in/mapplic/mapplic-routes.css" rel="stylesheet" />
+ 
+    <style type="text/css">
+				.modal {
+				display:    none;
+				position:   fixed;
+				z-index:    1000;
+				top:        0;
+				left:       0;
+				height:     100%;
+				width:      100%;
+				background: rgba( 255, 255, 255, .8 ) 
+							url('http://i.stack.imgur.com/FhHRx.gif') 
+							50% 50% 
+							no-repeat;
+			}
+
+			/* When the body has the loading class, we turn
+			   the scrollbar off with overflow:hidden */
+			body.loading .modal {
+				overflow: hidden;   
+			}
+
+			/* Anytime the body has the loading class, our
+			   modal element will be visible */
+			body.loading .modal {
+				display: block;
+			}
+
+	
+	
+           .wrapper {
+               width: 100%;
+               margin: 0 auto;
+               position: relative;
+               height:980px;/* Ensure absolute positioned child elements are relative to this*/
+           }
+
+           /* Absolute positioned wrapper for the element you want to fix position */
+           .fixed-wrapper {
+               width: 100%;
+               position: absolute;
+               top: 0;
+               left: 0px; /* Move this out to the left of the site body, leaving a 20px gutter */
+           }
+
+           /* The element you want to fix the position of */
+           .fixed {
+               width: 100%;
+               position: fixed;
+               /* Do not set top / left! */
+           }
+       
+             #container {
+           min-width:1920px;
+           margin:0 auto;
+        }
+		.level-switch-text{
+			color: black;
+			display: flex;
+			justify-content: center;
+			font-size: 26px;
+			font-weight: 600;
+		}
+ 
+    </style>
+
+</head>
+<body>
+
+    <div class="map-container">
+        <div class="fixed-wrapper">
+            <div class="fixed">
+  
+	<div id="txtdisplay" class="level-switch-text"></div>
+	<div id="divtxt" class="level-switch-text"></div>
+	
+        <div id="mapplic" class="mapplic-routes"></div> <!-- Map -->
+		</div>
+   
+            </div>
+            </div>
+      
+           
+		   <script src="https://code.jquery.com/jquery-3.6.0.js" type="text/javascript"></script>
+		   
+            <script type="text/javascript" src="http://admin.sccm.in/js/hammer.min.js"></script>
+            <script type="text/javascript" src="http://admin.sccm.in/js/jquery.mousewheel.js"></script>
+            <script type="text/javascript" src="http://admin.sccm.in/js/script.js"></script>
+            <script type="text/javascript" src="http://admin.sccm.in/mapplic/mapplic1.js"></script>
+            <script type="text/javascript" src="http://admin.sccm.in/mapplic/mapplic-routes.js"></script>
+            <script type="text/javascript" src="http://admin.sccm.in/mapplic/admin-script.js"></script>
+            <script type="text/javascript">
+               
+                $(document).ready(function () {
+
+                    var map = $('#mapplic').mapplic({
+                        source: 'http://admin.sccm.in/MapNav/mall-routestest.json',
+                        height: 990,
+                        sidebar: true,
+                        landmark: true,
+                        maxscale: 2,
+                        minimap: false, // Enable minimap
+                        marker: 'hidden',     // Disable markers
+                        fillcolor: '#F9684B', // Disable default fill color
+                        fullscreen: false, 	// Enable fullscreen
+                        portrait: true,
+                        developer: false,
+						zoom:false,
+                        width: 100,
+						  mapfill: false,
+						
+
+                        routes: {
+                            opened: true,
+                            from: false,
+                           linecolor: '#2590F4',
+							linewidth: 8,
+                            speed: 0.8,
+                            ZoomLevel: 1,
+                            smoothing: 5
+                        }
+						
+                    });			
+                });
+				
+            </script>
+			
+
+</body>
+</html>
